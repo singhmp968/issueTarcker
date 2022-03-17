@@ -20,3 +20,11 @@ module.exports.create = function (req, res) {
     }
   );
 };
+module.exports.issue = async function (req, res) {
+  console.log("dasda", req.query.projectid);
+  let project = await ProjectList.findById(req.query.projectid);
+  console.log("project", project);
+  return res.render("projectDEtailPage", {
+    project: project,
+  });
+};

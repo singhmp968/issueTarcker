@@ -8,7 +8,12 @@
     <% for(i of project ) {%>
     <li>
       <div class="projectSection">
-        <p><%=i.projectname %> <%=i.author %> <%=i.description %></p>
+        <p>
+          <%=i.projectname %> <%=i.author %> <%=i.description %>
+          <span
+            ><a href="/project/issue/?projectid=<%=i.id%>">Show Issue</a></span
+          >
+        </p>
       </div>
     </li>
     <%}%>
