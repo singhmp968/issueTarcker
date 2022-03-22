@@ -9,14 +9,14 @@
       <input type="text" name="title" placeholder="issue title" />
       <input type="description" name="title" placeholder="issue description" />
       <input type="description" name="author" placeholder="Author Name" />
-      <select name="lable" onchange="selectlabel()" required>
+      <select name="lable" id="selectBox" onchange="selectlabel()" required>
         <option value="" disabled selected>Select issue lable</option>
         <option>Personal</option>
         <option>Work</option>
         <option>Claeaning</option>
         <option>Otheres</option>
       </select>
-
+      <div id="valueSelected"></div>
       <input type="submit" value="submit" />
     </form>
   </div>
