@@ -1,0 +1,22 @@
+<h1>welcome to Issue tracker Application</h1>
+<%=project%>
+<div>
+  <h1>Project details</h1>
+</div>
+<div class="projectDet">
+  <ul>
+    <% for(i of project ) {%>
+    <li>
+      <div class="projectSection">
+        <p>
+          <%=i.projectname %> <%=i.author %> <%=i.description %>
+          <span
+            ><a href="/project/issue/?projectid=<%=i.id%>">Show Issue</a></span
+          >
+        </p>
+      </div>
+    </li>
+    <%}%>
+  </ul>
+</div>
+<a href="/project/createprojectpage">Create project</a>
