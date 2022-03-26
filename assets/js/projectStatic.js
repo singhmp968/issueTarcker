@@ -30,14 +30,26 @@ async function selectlabel(e) {
 }
 let repo = $("#reportissueform");
 repo.submit(function (e) {
+  let label = "label=";
   e.preventDefault();
   console.log("asdas", repo.serialize());
   let abc = repo.serialize().split("&");
-  console.log(abc[3].split("=")[0]);
-
+  console.log(abc);
+  abc.pop();
+  for (a of selectedArr) {
+    label += a + ",";
+  }
+  let bobyData = "";
+  for (let i = 0; i < abc.length; i++) {
+    bobyData += abc[i] + "&";
+  }
+  bobyData += label;
+  console.log("dasda==>", bobyData);
+  // tobeSend = [repo.serialize(), selectedArr];
+  // console.log("to be send", tobeSend);
   $.ajax({
     type: "POST",
     url: "/issue/createIssue",
-    data: repo.serialize(),
+    data: bobyData,
   });
 });
