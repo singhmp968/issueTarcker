@@ -13,6 +13,11 @@ const issueSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    projectRef: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ProjectList",
+      required: true,
+    },
     labels: [],
   },
   {

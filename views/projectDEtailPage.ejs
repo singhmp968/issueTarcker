@@ -3,21 +3,8 @@
   <p>Project Name -> <%= project.projectname%></p>
   <p>Author Name -> <%= project.author%></p>
   <p>Author Name -> <%= project.description%></p>
-  <div id="reportissue">Report issue</div>
-  <div class="reportForm">
-    <form action="/isseu" method="post" id="reportissueform">
-      <input type="text" name="title" placeholder="issue title" />
-      <input type="description" name="desc" placeholder="issue description" />
-      <input type="description" name="author" placeholder="Author Name" />
-      <select name="lable" id="selectBox" onchange="selectlabel()" required>
-        <option value="" disabled selected>Select issue lable</option>
-        <option>Personal</option>
-        <option>Work</option>
-        <option>Claeaning</option>
-        <option>Otheres</option>
-      </select>
-      <div id="valueSelected"></div>
-      <input type="submit" value="submit" />
-    </form>
+  <div>
+    <a href="/issue/reportIssue/<%= project._id %>">Report Issue</a>
   </div>
+  <div id="reportissue">Report issue</div>
 </div>
