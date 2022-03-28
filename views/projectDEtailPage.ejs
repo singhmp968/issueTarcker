@@ -1,8 +1,40 @@
-<p>Bugs relate to <%= project%> project</p>
+<div class="filters">
+  <div class="filter-labels">
+    <form>
+      <select>
+        <% for( op of labelsonCurr ) {%>
+        <option><%= op %></option>
+
+        <%}%>
+      </select>
+      <select>
+        <% for( op of labelsonCurr ) {%>
+        <option><%= op %></option>
+
+        <%}%>
+      </select>
+      <input type="submit" value="search" />
+    </form>
+  </div>
+</div>
+<p>Bugs relate to <%= project.projectname%> project</p>
 <div class="projectDetail">
   <p>Project Name -> <%= project.projectname%></p>
   <p>Author Name -> <%= project.author%></p>
   <p>Author Name -> <%= project.description%></p>
+
+  <div class="issuebox">
+    <ul>
+      <% for(isdec of issue ){ %>
+      <li>
+        <div>issue Title: <%= isdec.title %></div>
+        <div>description : <%= isdec.description %></div>
+        <div>Author: <%= isdec.author %></div>
+        Lable:-> <% for(label of isdec.labels){ %> <%= label %> <%}%>
+      </li>
+      <%}%>
+    </ul>
+  </div>
   <div>
     <a href="/issue/reportIssue/<%= project._id %>">Report Issue</a>
   </div>
