@@ -13,6 +13,12 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    issue: [
+      {
+        type: mongoose.Schema.Types.ObjectId, // here we are refering to object id
+        ref: "issueSchema",
+      },
+    ],
   },
   {
     timestamps: true,

@@ -1,18 +1,19 @@
 <div class="filters">
   <div class="filter-labels">
-    <form>
-      <select>
+    <form action="/issue/filterissue" method="post">
+      <select name="label1">
+        <% for( op of labelsonCurr ) {%>
+        <option value="<%= op %>"><%= op %></option>
+
+        <%}%>
+      </select>
+      <select name="label2">
         <% for( op of labelsonCurr ) {%>
         <option><%= op %></option>
 
         <%}%>
       </select>
-      <select>
-        <% for( op of labelsonCurr ) {%>
-        <option><%= op %></option>
-
-        <%}%>
-      </select>
+      <input type="hidden" name="projectId" value="<%= project._id %>" />
       <input type="submit" value="search" />
     </form>
   </div>
