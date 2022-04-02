@@ -23,6 +23,7 @@ module.exports.create = function (req, res) {
 };
 module.exports.issue = async function (req, res) {
   console.log("dasda", req.query.projectid);
+
   let project = await ProjectList.findById(req.query.projectid);
   let issueRleToPro = await issue.find({ projectRef: req.query.projectid });
   console.log("project--->", issueRleToPro);
@@ -39,5 +40,6 @@ module.exports.issue = async function (req, res) {
     project: project,
     issue: issueRleToPro,
     labelsonCurr: uniset,
+    showProjectDet: true,
   });
 };

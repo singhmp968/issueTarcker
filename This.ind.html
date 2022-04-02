@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="thiskeyword.js"></script>
+    <script>
+      //   const a = "j";
+      //   first();
+
+      //   function first() {
+      //     const b = "hell0";
+      //     sec();
+
+      //     function sec() {
+      //       const c = "hi";
+      //       thord();
+      //     }
+      //   }
+      //   function thord() {
+      //     const d = "hey";
+      //     console.log(d + c + b + a);
+      var fNmae = 2022;
+      const jhonas = {
+        year: 1998,
+        calcAge: function () {
+          console.log(this);
+          console.log(2022 - this.fNmae);
+          const a = () => {
+            console.log("aee", this);
+          };
+          a();
+        },
+      };
+      jhonas.calcAge();
+    </script>
+  </body>
+</html>

@@ -13,11 +13,26 @@
 
         <%}%>
       </select>
+      <input type="text" placeholder="Search Author" name="searchAuthor" />
       <input type="hidden" name="projectId" value="<%= project._id %>" />
       <input type="submit" value="search" />
     </form>
   </div>
+  <div>
+    <!-- form for search title and description -->
+    <form>
+      <input
+        type="text"
+        name="serchBtTitNDesc"
+        placeholder="Enter title or description to be searched"
+      />
+      <input type="hidden" value="<%= project._id %>" name="projectId" />
+      <input type="submit" value="Search" />
+    </form>
+  </div>
 </div>
+
+<% if(showProjectDet) {%>
 <p>Bugs relate to <%= project.projectname%> project</p>
 <div class="projectDetail">
   <p>Project Name -> <%= project.projectname%></p>
@@ -41,3 +56,15 @@
   </div>
   <div id="reportissue">Report issue</div>
 </div>
+<% } %> <% if(!showProjectDet) {%> <% for(i of filterdata) {%>
+<div>
+  <p><%= i.title %></p>
+  <p><%= i.description %></p>
+  <p><%= i.labels %></p>
+  <p><%= i.author %></p>
+</div>
+
+<!--  -->
+<%}%>
+<!--  -->
+<%}%>

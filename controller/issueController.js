@@ -1,3 +1,4 @@
+const { set } = require("express/lib/application");
 const issue = require("../models/issue");
 const projectDet = require("../models/projectDetails");
 // report page
@@ -36,6 +37,48 @@ module.exports.createIssue = async function (req, res) {
 
 module.exports.filterissue = async function (req, res) {
   console.log("inissue", req.body);
-  let projectData = await projectDet.findById(req.body.projectId);
-  console.log("project is", projectData);
+
+  let projectData = await projectDet
+    .findById(req.body.projectId)
+    .populate("issue");
+  let filterdata = new Set();
+
+  if (req.body.searchAuthor) {
+    console.log(" autor search");
+    for (i of projectData.issue) {
+      if (i.author === req.body.searchAuthor) console.log("author", i.author);
+      filterdata.add(i);
+
+      break;
+    }
+  } else {
+    for (i of projectData.issue) {
+      //console.log("->", i.labels);
+      for (j of i.labels) {
+        console.log(j);
+        if (j === req.body.label1 || j === req.body.label2) {
+          console.log("data is-->", i);
+
+          filterdata.add(i);
+        }
+      }
+    }
+  }
+  console.log("filter arr", filterdata);
+  let issueRleToPro = await issue.find({ projectRef: req.body.projectId });
+  let uniqueArr = [];
+  for (i of issueRleToPro) {
+    for (j of i.labels) {
+      uniqueArr.push(j);
+    }
+  }
+  let uniset = [...new Set(uniqueArr)];
+  console.log("sada", uniset);
+
+  return res.render("projectDEtailPage", {
+    filterdata: filterdata,
+    labelsonCurr: uniset,
+    showProjectDet: false,
+    project: projectData,
+  });
 };
