@@ -82,3 +82,13 @@ module.exports.filterissue = async function (req, res) {
     project: projectData,
   });
 };
+
+// search by title and description
+module.exports.searchTeiNDesc = async function (req, res) {
+  if (req.xhr) {
+    console.log("success");
+    return res.status(200).json({
+      message: "success",
+    });
+  }
+};

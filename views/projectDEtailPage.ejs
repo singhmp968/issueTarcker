@@ -20,7 +20,7 @@
   </div>
   <div>
     <!-- form for search title and description -->
-    <form>
+    <form id="searchAuthor" action="/issue/filterissue" method="post">
       <input
         type="text"
         name="serchBtTitNDesc"
@@ -31,40 +31,42 @@
     </form>
   </div>
 </div>
+<div id="projectDetSection">
+  <% if(showProjectDet) {%>
+  <p>Bugs relate to <%= project.projectname%> project</p>
+  <div class="projectDetail">
+    <p>Project Name -> <%= project.projectname%></p>
+    <p>Author Name -> <%= project.author%></p>
+    <p>Author Name -> <%= project.description%></p>
 
-<% if(showProjectDet) {%>
-<p>Bugs relate to <%= project.projectname%> project</p>
-<div class="projectDetail">
-  <p>Project Name -> <%= project.projectname%></p>
-  <p>Author Name -> <%= project.author%></p>
-  <p>Author Name -> <%= project.description%></p>
-
-  <div class="issuebox">
-    <ul>
-      <% for(isdec of issue ){ %>
-      <li>
-        <div>issue Title: <%= isdec.title %></div>
-        <div>description : <%= isdec.description %></div>
-        <div>Author: <%= isdec.author %></div>
-        Lable:-> <% for(label of isdec.labels){ %> <%= label %> <%}%>
-      </li>
-      <%}%>
-    </ul>
+    <div class="issuebox">
+      <ul>
+        <% for(isdec of issue ){ %>
+        <li>
+          <div>issue Title: <%= isdec.title %></div>
+          <div>description : <%= isdec.description %></div>
+          <div>Author: <%= isdec.author %></div>
+          Lable:-> <% for(label of isdec.labels){ %> <%= label %> <%}%>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+    <div>
+      <a href="/issue/reportIssue/<%= project._id %>">Report Issue</a>
+    </div>
+    <div id="reportissue">Report issue</div>
   </div>
+  <% } %> <% if(!showProjectDet) {%> <% for(i of filterdata) {%>
   <div>
-    <a href="/issue/reportIssue/<%= project._id %>">Report Issue</a>
+    <p><%= i.title %></p>
+    <p><%= i.description %></p>
+    <p><%= i.labels %></p>
+    <p><%= i.author %></p>
   </div>
-  <div id="reportissue">Report issue</div>
-</div>
-<% } %> <% if(!showProjectDet) {%> <% for(i of filterdata) {%>
-<div>
-  <p><%= i.title %></p>
-  <p><%= i.description %></p>
-  <p><%= i.labels %></p>
-  <p><%= i.author %></p>
-</div>
 
-<!--  -->
-<%}%>
-<!--  -->
-<%}%>
+  <!--  -->
+  <%}%>
+  <!--  -->
+  <%}%>
+  <script src="/js/searchAuthor.js"></script>
+</div>
