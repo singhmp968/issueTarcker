@@ -85,9 +85,27 @@ module.exports.filterissue = async function (req, res) {
 
 // search by title and description
 module.exports.searchTeiNDesc = async function (req, res) {
+  console.log(req.body);
+  let searchData = req.body.serchBtTitNDesc;
+  let issusDatas = await projectDet
+    .findById(req.body.projectId)
+    .populate("issue");
+  console.log("adas++", issusDatas.issue);
+  filterarr = issusDatas.issue.filter(function (ci, index, arr) {
+    console.log("ci", ci.description.match(searchData));
+    return ci.description.match(searchData);
+  });
+  searchauthor = issusDatas.issue.filter(function (ci, index, arr) {
+    console.log("ci", ci.description.match(searchData));
+    return ci.author.match(searchData);
+  });
+  descAndAuthDet = [...filterarr, ...searchauthor];
+  console.log("final data", descAndAuthDet);
+  //issue.find({'':{$regex:'.*'+}})
   if (req.xhr) {
     console.log("success");
     return res.status(200).json({
+      descAndAuthDet: descAndAuthDet,
       message: "success",
     });
   }
