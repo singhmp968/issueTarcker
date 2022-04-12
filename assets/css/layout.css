@@ -1,0 +1,9 @@
+body {
+  background-color: white; }
+  body td {
+    border-bottom: 1px solid black; }
+  body .projectDatalist {
+    text-align: center; }
+  body .descAndedit {
+    display: flex;
+    justify-content: space-between; }

@@ -1,0 +1,17 @@
+body {
+  background-color: white;
+  table,
+  th,
+  td {
+  }
+  td {
+    border-bottom: 1px solid black;
+  }
+  .projectDatalist {
+    text-align: center;
+  }
+  .descAndedit {
+    display: flex;
+    justify-content: space-between;
+  }
+}
