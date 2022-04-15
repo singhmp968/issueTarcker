@@ -1,14 +1,28 @@
-<form action="/project/create" method="post">
-  <input
-    type="text"
-    name="projectname"
-    placeholder="enter name of your projects"
-  />
-  <input
-    type="text"
-    name="description"
-    placeholder="enter description of your of your projects"
-  />
-  <input type="text" name="author" placeholder="project author" />
-  <input type="submit" value="enter project Details" />
-</form>
+<div class="formContainer">
+  <h2 class="midHead">Create New Project</h2>
+  <form action="/project/create" method="post">
+    <input
+      type="text"
+      name="projectname"
+      placeholder="enter name of your projects"
+      required
+      class="form-fields"
+    /><br />
+
+    <input
+      type="text"
+      name="description"
+      required
+      placeholder="enter description of your of your projects"
+      class="form-fields"
+    /><br />
+    <input
+      type="text"
+      name="author"
+      placeholder="project author"
+      class="form-fields"
+      required
+    /><br />
+    <input type="submit" value="Create new Project" class="form-fields" />
+  </form>
+</div>

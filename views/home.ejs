@@ -1,43 +1,36 @@
-<h1></h1>
-<section class="left"></section>
-<section class="right"></section>
 <div>
-  <h1>Project details</h1>
+  <h1 class="divTextCent">Project details</h1>
 </div>
-<div class="projectDet">
-  <!-- <ul>
-    <% for(i of project ) {%>
-    <li>
-      <div class="projectSection">
-        <p>
-          <%=i.projectname %> <%=i.author %> <%=i.description %>
-          <span
-            ><a href="/project/issue/?projectid=<%=i.id%>">Show Issue</a></span
-          >
-        </p>
-      </div>
-    </li>
-    <%}%>
-  </ul> -->
-  <table style="width: 100%" border="0" cellspacing="10" cellpadding="10">
-    <tr>
-      <th>Project Name</th>
-      <th>Author</th>
-      <th>project description</th>
-    </tr>
-    <% for(i of project ) {%>
-    <tr class="projectDatalist">
-      <td><%=i.projectname %></td>
-      <td><%=i.author %></td>
-      <td>
-        <div class="descAndedit">
-          <%=i.description %>
-          <span
-            ><a href="/project/issue/?projectid=<%=i.id%>">Show Issue</a></span
-          >
-        </div>
-      </td>
-    </tr>
-    <%}%>
-  </table>
+<div>
+  <button onclick="handleleftAsidesec()" class="leftAsideSec">x</button>
 </div>
+<section id="left">
+  <div></div>
+</section>
+<section id="right">
+  <div class="projectDet">
+    <table style="width: 100%" border="0" cellspacing="10" cellpadding="10">
+      <tr>
+        <th>Project Name</th>
+        <th>Author</th>
+        <th>project description</th>
+      </tr>
+      <% for(i of project ) {%>
+      <tr class="projectDatalist">
+        <td><%=i.projectname %></td>
+        <td><%=i.author %></td>
+        <td>
+          <div class="descAndedit">
+            <%=i.description %>
+            <span
+              ><a href="/project/issue/?projectid=<%=i.id%>"
+                >Show Issue</a
+              ></span
+            >
+          </div>
+        </td>
+      </tr>
+      <%}%>
+    </table>
+  </div>
+</section>

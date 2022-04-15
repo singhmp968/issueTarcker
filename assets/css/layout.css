@@ -7,3 +7,41 @@ body {
   body .descAndedit {
     display: flex;
     justify-content: space-between; }
+  body .divTextCent {
+    text-align: center; }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; }
+
+#createProject {
+  text-decoration: none;
+  border: 1px solid black;
+  background: cornflowerblue;
+  color: white; }
+
+.formContainer {
+  text-align: center;
+  position: relative;
+  top: 7%;
+  left: 27%;
+  width: 40%; }
+  .formContainer .form-fields {
+    width: 100%;
+    margin-top: 15px;
+    height: 35px; }
+
+#left {
+  width: 20%;
+  display: inline-block;
+  height: 400px;
+  background-color: aqua; }
+  #left .leftAsideSec {
+    border: 1px solid red;
+    width: 100%; }
+
+#right {
+  width: 70%;
+  display: inline-block;
+  vertical-align: top; }
