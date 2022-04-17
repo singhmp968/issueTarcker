@@ -46,6 +46,7 @@ nav {
   display: inline-block;
   height: 400px;
   background-color: aqua;
+  // transition: ;
   .leftAsideSec {
     border: 1px solid red;
 
@@ -56,4 +57,22 @@ nav {
   width: 70%;
   display: inline-block;
   vertical-align: top;
+}
+#projectDetSection {
+  position: relative;
+  top: 10%;
+  left: 27%;
+  width: 40%;
+  .descBox {
+    border: 1px solid red;
+    width: 100%;
+    text-align: center;
+  }
+  .reportissuecl {
+    text-decoration: none;
+    color: white;
+    height: 30px;
+    width: 40px;
+    background-color: red;
+  }
 }

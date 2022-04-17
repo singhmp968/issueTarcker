@@ -45,3 +45,19 @@ nav {
   width: 70%;
   display: inline-block;
   vertical-align: top; }
+
+#projectDetSection {
+  position: relative;
+  top: 10%;
+  left: 27%;
+  width: 40%; }
+  #projectDetSection .descBox {
+    border: 1px solid red;
+    width: 100%;
+    text-align: center; }
+  #projectDetSection .reportissuecl {
+    text-decoration: none;
+    color: white;
+    height: 30px;
+    width: 40px;
+    background-color: red; }

@@ -1,5 +1,5 @@
 <div class="filters">
-  <div class="filter-labels">
+  <div class="filter-labels formContainer">
     <form action="/issue/filterissue" method="post">
       <select name="label1">
         <% for( op of labelsonCurr ) {%>
@@ -13,31 +13,47 @@
 
         <%}%>
       </select>
-      <input type="text" placeholder="Search Author" name="searchAuthor" />
-      <input type="hidden" name="projectId" value="<%= project._id %>" />
-      <input type="submit" value="search" />
+      <input
+        type="text"
+        placeholder="Search Author"
+        class="form-fields"
+        name="searchAuthor"
+      />
+      <input
+        type="hidden"
+        name="projectId"
+        class="form-fields"
+        value="<%= project._id %>"
+      />
+      <input type="submit" value="search" class="form-fields" />
     </form>
   </div>
-  <div>
+  <div class="formContainer">
     <!-- form for search title and description -->
     <form id="searchAuthor" action="/issue/filterissue" method="post">
       <input
+        class="form-fields"
         type="text"
         name="serchBtTitNDesc"
         placeholder="Enter title or description to be searched"
       />
-      <input type="hidden" value="<%= project._id %>" name="projectId" />
-      <input type="submit" value="Search" />
+      <input
+        type="hidden"
+        value="<%= project._id %>"
+        name="projectId"
+        class="form-fields"
+      />
+      <input type="submit" value="Search" class="form-fields" />
     </form>
   </div>
 </div>
 <div id="projectDetSection">
   <% if(showProjectDet) {%>
-  <p>Bugs relate to <%= project.projectname%> project</p>
+  <div class="descBox">Bugs relate to <%= project.projectname%> project</div>
   <div class="projectDetail">
-    <p>Project Name -> <%= project.projectname%></p>
-    <p>Author Name -> <%= project.author%></p>
-    <p>Author Name -> <%= project.description%></p>
+    <p class="descBox">Project Name -> <%= project.projectname%></p>
+    <p class="descBox">Author Name -> <%= project.author%></p>
+    <p class="descBox">Author Name -> <%= project.description%></p>
 
     <div class="issuebox">
       <ul>
@@ -52,9 +68,10 @@
       </ul>
     </div>
     <div>
-      <a href="/issue/reportIssue/<%= project._id %>">Report Issue</a>
+      <a class="reportissuecl" href="/issue/reportIssue/<%= project._id %>"
+        >Report Issue</a
+      >
     </div>
-    <div id="reportissue">Report issue</div>
   </div>
   <% } %> <% if(!showProjectDet) {%> <% for(i of filterdata) {%>
   <div>
