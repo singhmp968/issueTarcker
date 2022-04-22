@@ -1,89 +1,159 @@
-<div class="filters">
-  <div class="filter-labels formContainer">
-    <form action="/issue/filterissue" method="post">
-      <select name="label1">
-        <% for( op of labelsonCurr ) {%>
-        <option value="<%= op %>"><%= op %></option>
 
-        <%}%>
-      </select>
-      <select name="label2">
-        <% for( op of labelsonCurr ) {%>
-        <option><%= op %></option>
-
-        <%}%>
-      </select>
-      <input
-        type="text"
-        placeholder="Search Author"
-        class="form-fields"
-        name="searchAuthor"
-      />
-      <input
-        type="hidden"
-        name="projectId"
-        class="form-fields"
-        value="<%= project._id %>"
-      />
-      <input type="submit" value="search" class="form-fields" />
-    </form>
+<div>
+  <div class="" id="reportButton">
+    <a class="reportissuecl navbar-brand" href="/issue/reportIssue/<%= project._id %>"
+      >Report Issue</a
+    >
   </div>
-  <div class="formContainer">
-    <!-- form for search title and description -->
-    <form id="searchAuthor" action="/issue/filterissue" method="post">
-      <input
-        class="form-fields"
-        type="text"
-        name="serchBtTitNDesc"
-        placeholder="Enter title or description to be searched"
-      />
-      <input
-        type="hidden"
-        value="<%= project._id %>"
-        name="projectId"
-        class="form-fields"
-      />
-      <input type="submit" value="Search" class="form-fields" />
-    </form>
-  </div>
-</div>
-<div id="projectDetSection">
   <% if(showProjectDet) {%>
-  <div class="descBox">Bugs relate to <%= project.projectname%> project</div>
-  <div class="projectDetail">
-    <p class="descBox">Project Name -> <%= project.projectname%></p>
-    <p class="descBox">Author Name -> <%= project.author%></p>
-    <p class="descBox">Author Name -> <%= project.description%></p>
+  <div class="row ml-5 mt-4">
+   
+  <div class="col-1 totalBugs m-1">
+    
+    <p><%= issue.length %></p>
+    
+    <p>open bugs</p>
+</div>
+<%}%>
 
-    <div class="issuebox">
-      <ul>
+</div>
+  <div class="filters">
+  
+  
+    <div class="filter-labels formContainer">
+      <form action="/issue/filterissue" method="post">
+        <select name="label1">
+          <% for( op of labelsonCurr ) {%>
+          <option value="<%= op %>"><%= op %></option>
+  
+          <%}%>
+        </select>
+        <select name="label2">
+          <% for( op of labelsonCurr ) {%>
+          <option><%= op %></option>
+  
+          <%}%>
+        </select>
+        <input
+          type="text"
+          placeholder="Search Author"
+          class="form-fields"
+          name="searchAuthor"
+        />
+        <input
+          type="hidden"
+          name="projectId"
+          class="form-fields"
+          value="<%= project._id %>"
+        />
+        <input type="submit" value="search" class="form-fields" />
+      </form>
+    </div>
+    <div class="formContainer">
+      <!-- form for search title and description -->
+      <form id="searchAuthor" action="/issue/filterissue" method="post">
+        <input
+          class="form-fields"
+          type="text"
+          name="serchBtTitNDesc"
+          placeholder="Enter title or description to be searched"
+        />
+        <input
+          type="hidden"
+          value="<%= project._id %>"
+          name="projectId"
+          class="form-fields"
+        />
+        <input type="submit" value="Search" class="form-fields" />
+      </form>
+    </div>
+  </div>
+  
+  
+  <div id="projectDetSection">
+    <% if(showProjectDet) {%>
+    
+    <div class="projectDetail">
+      <div class="ProjectDetAndDesription">
+      <p class="">Project Name - <%= project.projectname%></p>
+      <p class="">Author Name - <%= project.author%></p>
+      <p class="">Author Name - <%= project.description%></p>
+    </div>
+      <div class="issuebox">
+       
+        <table class="table">
+          <thead>
+            <tr>
+              
+              <th scope="col">issue Title</th>
+              <th scope="col">description</th>
+              <th scope="col">Author</th>
+            </tr>
+          </thead>
         <% for(isdec of issue ){ %>
-        <li>
-          <div>issue Title: <%= isdec.title %></div>
-          <div>description : <%= isdec.description %></div>
-          <div>Author: <%= isdec.author %></div>
-          Lable:-> <% for(label of isdec.labels){ %> <%= label %> <%}%>
-        </li>
+          <tr>
+            
+            <td><%= isdec.title %></td>
+            <td><%= isdec.description %></td>
+            <td><%= isdec.author %></td>
+          </tr>
         <%}%>
-      </ul>
+         
+        </tbody>
+      </table>
+          
+          <!-- <div class="issusList">
+          <div class="dispIssue"><%= isdec.title %></div>
+          <div class="dispIssue"><%= isdec.description %></div>
+          <div class="dispIssue"><%= isdec.author %></div>
+          <div class="dispIssue">
+            <% for(label of isdec.labels){ %> <%= label %> <%}%>
+          </div> -->
+          <!-- <div class="dispIssue">issue Title: <%= isdec.title %></div>
+            <div class="dispIssue">description : <%= isdec.description %></div>
+            <div class="dispIssue">Author: <%= isdec.author %></div>
+            <div class="dispIssue">
+              Lable:-> <% for(label of isdec.labels){ %> <%= label %> <%}%>
+            </div> -->
+        </div>
+      </div>
+     
     </div>
-    <div>
-      <a class="reportissuecl" href="/issue/reportIssue/<%= project._id %>"
-        >Report Issue</a
-      >
-    </div>
-  </div>
-  <% } %> <% if(!showProjectDet) {%> <% for(i of filterdata) {%>
-  <div>
-    <p><%= i.title %></p>
-    <p><%= i.description %></p>
-    <p><%= i.labels %></p>
-    <p><%= i.author %></p>
-  </div>
+    <% } %> <% if(!showProjectDet) {%>
+      <div class="sear">
+        <h3>Search Result</h3>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">issue Title</th>
+            <th scope="col">description</th>
+            <th scope="col">Author</th>
+            <th scope="col">Label</th>
+          </tr>
+        </thead>
+      
+      <% for(i of filterdata) {%>
+  
+      
+     
+        <tr>
+          
+          <td><%= i.title %></td>
+          <td><%= i.description %></td>
+          <td><%= i.labels %></td>
+          <td><%= i.author %></td>
 
-  <!--  -->
-  <%}%>
-  <!--  -->
-  <%}%>
-  <script src="/js/searchAuthor.js"></script>
+        </tr>
+
+    <%}%>
+  </tbody>
+</table>
+    <!--  -->
+    <%}%>
+    <script src="/js/searchAuthor.js"></script>
+  </div>
+  
+
 </div>

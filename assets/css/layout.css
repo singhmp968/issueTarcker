@@ -1,3 +1,8 @@
+.heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around; }
+
 body {
   background-color: white; }
   body td {
@@ -19,7 +24,8 @@ nav {
   text-decoration: none;
   border: 1px solid black;
   background: cornflowerblue;
-  color: white; }
+  color: white;
+  border-radius: 6px; }
 
 .formContainer {
   text-align: center;
@@ -47,17 +53,56 @@ nav {
   vertical-align: top; }
 
 #projectDetSection {
-  position: relative;
-  top: 10%;
-  left: 27%;
-  width: 40%; }
+  display: inline-block;
+  vertical-align: top;
+  width: 50%; }
   #projectDetSection .descBox {
     border: 1px solid red;
     width: 100%;
+    text-align: center;
+    margin-bottom: -13px;
+    height: 25px;
+    border: 1px solid red;
     text-align: center; }
-  #projectDetSection .reportissuecl {
-    text-decoration: none;
-    color: white;
-    height: 30px;
-    width: 40px;
-    background-color: red; }
+
+.issusList {
+  display: flex;
+  justify-content: space-between; }
+
+.dispIssue {
+  height: 25px;
+  border-bottom: 1px solid red;
+  text-align: center; }
+
+.issuebox {
+  margin-top: 35px; }
+
+.issuetitelsArea {
+  display: flex; }
+
+.totalBugs {
+  border: 1px solid red;
+  border-radius: 10px;
+  background-color: red;
+  text-align: center;
+  color: white; }
+
+#reportButton {
+  background-color: skyblue;
+  border: 1px solid red;
+  border-radius: 10px;
+  width: 117px;
+  text-align: center;
+  position: relative;
+  left: 90%; }
+
+.filters {
+  /* position: relative; */
+  width: 40%;
+  display: inline-block; }
+
+.ProjectDetAndDesription {
+  display: flex; }
+
+.sear {
+  text-align: center; }
