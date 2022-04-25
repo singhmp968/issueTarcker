@@ -126,6 +126,7 @@ nav {
   /* position: relative; */
   width: 40%;
   display: inline-block;
+  // border-right: 1px solid green;
 }
 .ProjectDetAndDesription {
   display: flex;
@@ -138,4 +139,7 @@ nav {
 }
 .centerthisissue {
   text-align: center;
+}
+.borderbottom {
+  border-bottom: 1px solid green;
 }

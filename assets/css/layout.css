@@ -112,3 +112,6 @@ nav {
 
 .centerthisissue {
   text-align: center; }
+
+.borderbottom {
+  border-bottom: 1px solid green; }
