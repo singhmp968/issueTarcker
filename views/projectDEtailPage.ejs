@@ -17,8 +17,13 @@
 <%}%>
 
 </div>
-  <div class="filters">
+<% if(issue.length==0 && showProjectDet) {%>
+<div class="centerthisissue"><h1>No Bugs related to this Project !! if know please raise</h1></div>
+  <% } %>
+<% if(issue.length>0) {%>
   
+
+  <div class="filters">
   
     <div class="filter-labels formContainer">
       <form action="/issue/filterissue" method="post">
@@ -34,12 +39,12 @@
   
           <%}%>
         </select>
-        <input
+        <!-- <input
           type="text"
           placeholder="Search Author"
           class="form-fields"
           name="searchAuthor"
-        />
+        /> -->
         <input
           type="hidden"
           name="projectId"
@@ -48,7 +53,24 @@
         />
         <input type="submit" value="search" class="form-fields" />
       </form>
+      <form action="/issue/filterissue" method="post" >
+        <input
+        type="text"
+        placeholder="Search Author"
+        class="form-fields"
+        name="searchAuthor"
+      />
+      <input
+        type="hidden"
+        name="projectId"
+        class="form-fields"
+        value="<%= project._id %>"
+      />
+      <input type="submit" value="search" class="form-fields" />
+      </form>
     </div>
+
+
     <div class="formContainer">
       <!-- form for search title and description -->
       <form id="searchAuthor" action="/issue/filterissue" method="post">
@@ -75,9 +97,9 @@
     
     <div class="projectDetail">
       <div class="ProjectDetAndDesription">
-      <p class="">Project Name - <%= project.projectname%></p>
-      <p class="">Author Name - <%= project.author%></p>
-      <p class="">Author Name - <%= project.description%></p>
+      <p class=""> <h2>Project Name - <%= project.projectname%></h2> </p>
+      <p class=""><h3> Author Name - <%= project.author%> </h3></p>
+      <p class=""> <h4> Description - <%= project.description%> </h4> </p>
     </div>
       <div class="issuebox">
        
@@ -101,24 +123,13 @@
          
         </tbody>
       </table>
-          
-          <!-- <div class="issusList">
-          <div class="dispIssue"><%= isdec.title %></div>
-          <div class="dispIssue"><%= isdec.description %></div>
-          <div class="dispIssue"><%= isdec.author %></div>
-          <div class="dispIssue">
-            <% for(label of isdec.labels){ %> <%= label %> <%}%>
-          </div> -->
-          <!-- <div class="dispIssue">issue Title: <%= isdec.title %></div>
-            <div class="dispIssue">description : <%= isdec.description %></div>
-            <div class="dispIssue">Author: <%= isdec.author %></div>
-            <div class="dispIssue">
-              Lable:-> <% for(label of isdec.labels){ %> <%= label %> <%}%>
-            </div> -->
+        
         </div>
       </div>
      
     </div>
+    <%} %>
+
     <% } %> <% if(!showProjectDet) {%>
       <div class="sear">
         <h3>Search Result</h3>
@@ -135,9 +146,6 @@
         </thead>
       
       <% for(i of filterdata) {%>
-  
-      
-     
         <tr>
           
           <td><%= i.title %></td>

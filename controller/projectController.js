@@ -22,11 +22,11 @@ module.exports.create = function (req, res) {
   );
 };
 module.exports.issue = async function (req, res) {
-  console.log("dasda", req.query.projectid);
+  // console.log("dasda", req.query.projectid);
 
   let project = await ProjectList.findById(req.query.projectid);
   let issueRleToPro = await issue.find({ projectRef: req.query.projectid });
-  console.log("project--->", issueRleToPro);
+  // console.log("project--->", issueRleToPro);
   let uniqueArr = [];
   for (i of issueRleToPro) {
     for (j of i.labels) {
@@ -34,7 +34,7 @@ module.exports.issue = async function (req, res) {
     }
   }
   let uniset = [...new Set(uniqueArr)];
-  console.log("sada", uniset);
+  // console.log("sada", uniset);
   //issueArr.push(issueRleToPro);
   return res.render("projectDEtailPage", {
     project: project,

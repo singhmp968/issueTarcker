@@ -102,7 +102,13 @@ nav {
   display: inline-block; }
 
 .ProjectDetAndDesription {
-  display: flex; }
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: 1px solid green; }
 
 .sear {
+  text-align: center; }
+
+.centerthisissue {
   text-align: center; }
